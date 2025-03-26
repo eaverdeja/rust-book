@@ -1,9 +1,20 @@
 use std::collections::HashMap;
 
-fn median(v: &mut Vec<i32>) -> i32 {
+fn median(v: &[i32]) -> Option<i32> {
+    if v.is_empty() {
+        return None;
+    }
+
+    let mut sorted = v.to_vec();
+    sorted.sort();
+
     let mid = v.len() / 2;
-    v.sort();
-    v[mid]
+
+    if v.len() % 2 == 0 {
+        Some((sorted[mid] + sorted[mid - 1]) / 2)
+    } else {
+        Some(sorted[mid])
+    }
 }
 
 fn mode(v: &mut Vec<i32>) -> i32 {
@@ -25,8 +36,11 @@ fn mode(v: &mut Vec<i32>) -> i32 {
 fn main() {
     let mut v = vec![5, 1, 1, 3, 2];
 
-    let median = median(&mut v);
-    println!("{median}");
+    let median = median(&v);
+    match median {
+        Some(m) => println!("Median is: {m}"),
+        None => println!("Empty array!"),
+    }
 
     let mode = mode(&mut v);
     println!("{mode}");
