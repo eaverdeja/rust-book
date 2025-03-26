@@ -17,24 +17,18 @@ fn median(v: &[i32]) -> Option<i32> {
     }
 }
 
-fn mode(v: &mut Vec<i32>) -> i32 {
+fn mode(v: &[i32]) -> Option<i32> {
     let mut map = HashMap::new();
-    for i in v {
-        map.entry(*i).and_modify(|e| *e += 1).or_insert(1);
+    for &i in v {
+        *map.entry(i).or_insert(0) += 1;
     }
-    let mut mode = 0;
-    let mut max_count = 0;
-    for (key, count) in map {
-        if count > max_count {
-            mode = key;
-            max_count = count;
-        }
-    }
-    mode
+    map.into_iter()
+        .max_by_key(|&(_, count)| count)
+        .map(|(num, _)| num)
 }
 
 fn main() {
-    let mut v = vec![5, 1, 1, 3, 2];
+    let v = vec![5, 1, 1, 3, 2];
 
     let median = median(&v);
     match median {
@@ -42,6 +36,9 @@ fn main() {
         None => println!("Empty array!"),
     }
 
-    let mode = mode(&mut v);
-    println!("{mode}");
+    let mode = mode(&v);
+    match mode {
+        Some(m) => println!("Mode is: {m}"),
+        None => println!("Empty array!"),
+    }
 }
