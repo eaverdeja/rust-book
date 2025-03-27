@@ -13,18 +13,21 @@ fn main() {
         let mut s = String::new();
         io::stdin().read_line(&mut s).expect("Failed to read line!");
 
-        let words: Vec<String> = s.trim().split(' ').map(|s| s.to_string()).collect();
-        for mut word in words {
+        let words: Vec<&str> = s.trim().split_whitespace().collect();
+
+        if words.is_empty() {
+            println!("Please enter a valid string!");
+            continue;
+        }
+
+        for word in words {
             let res = match word.chars().next().expect("Cannot convert empty string!") {
                 'a' | 'e' | 'i' | 'o' | 'u' => {
-                    word.push_str("-hay");
-                    word
+                    format!("{}-hay", word)
                 }
                 _ => {
-                    let first_letter = word.remove(0);
-                    let res = "-".to_string() + &first_letter.to_string() + "ay";
-                    word.push_str(&res);
-                    word
+                    let (first_letter, rest) = word.split_at(1);
+                    format!("{}-{}ay", rest, first_letter)
                 }
             };
             print!("{res} ");
