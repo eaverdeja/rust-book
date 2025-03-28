@@ -47,20 +47,27 @@ fn parse_command(input: &str) -> Result<Command, &'static str> {
 fn handle_add(ledger: &mut HashMap<String, Vec<String>>, employee: &str, department: &str) {
     ledger
         .entry(department.to_string())
-        .and_modify(|e| e.push(employee.to_string()))
-        .or_insert(vec![employee.to_string()]);
+        .or_default()
+        .push(employee.to_string())
 }
 
 fn handle_list(ledger: &HashMap<String, Vec<String>>, department: Option<String>) {
     match department {
-        Some(d) => {
-            let employees = ledger.get(&d).unwrap();
+        Some(dept) => {
+            let employees = ledger.get(&dept).unwrap();
             let mut sorted_employees = employees.clone();
             sorted_employees.sort();
             println!("{:?}", sorted_employees);
         }
         None => {
-            println!("{:?}", ledger);
+            let mut sorted_departments: Vec<String> = ledger.keys().cloned().collect();
+            sorted_departments.sort();
+
+            for dept in sorted_departments {
+                let mut sorted_employees = ledger[&dept].clone();
+                sorted_employees.sort();
+                println!("{}: {:?}", dept, sorted_employees);
+            }
         }
     }
 }
