@@ -44,6 +44,27 @@ fn parse_command(input: &str) -> Result<Command, &'static str> {
     }
 }
 
+fn handle_add(ledger: &mut HashMap<String, Vec<String>>, employee: &str, department: &str) {
+    ledger
+        .entry(department.to_string())
+        .and_modify(|e| e.push(employee.to_string()))
+        .or_insert(vec![employee.to_string()]);
+}
+
+fn handle_list(ledger: &HashMap<String, Vec<String>>, department: Option<String>) {
+    match department {
+        Some(d) => {
+            let employees = ledger.get(&d).unwrap();
+            let mut sorted_employees = employees.clone();
+            sorted_employees.sort();
+            println!("{:?}", sorted_employees);
+        }
+        None => {
+            println!("{:?}", ledger);
+        }
+    }
+}
+
 fn main() {
     let mut ledger: HashMap<String, Vec<String>> = HashMap::new();
     loop {
@@ -61,20 +82,10 @@ fn main() {
                 employee,
                 department,
             }) => {
-                ledger
-                    .entry(department.to_string())
-                    .and_modify(|e| e.push(employee.to_string()))
-                    .or_insert(vec![employee.to_string()]);
+                handle_add(&mut ledger, &employee, &department);
             }
             Ok(Command::List { department }) => {
-                if department.is_some() {
-                    let employees = ledger.get(&department.unwrap()).unwrap();
-                    let mut sorted_employees = employees.clone();
-                    sorted_employees.sort();
-                    println!("{:?}", sorted_employees);
-                } else {
-                    println!("{:?}", ledger);
-                }
+                handle_list(&ledger, department);
             }
             Ok(Command::Quit) => {
                 println!("Exiting program!");
