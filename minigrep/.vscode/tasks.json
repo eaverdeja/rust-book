@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "cargo",
+            "command": "run",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "label": "rust: cargo run",
+            "args": [
+                "${input:needle}",
+                "${input:haystack}"
+            ]
+        },
+    ],
+    "inputs": [
+        {
+            "id": "needle",
+            "type": "promptString",
+            "description": "search query"
+        },
+        {
+            "id": "haystack",
+            "type": "promptString",
+            "description": "content to search on"
+        }
+    ]
+}
