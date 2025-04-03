@@ -2,6 +2,16 @@ use std::env;
 use std::error::Error;
 use std::fs;
 
+/// Searches a file for a given query string.
+/// Prints out all lines that contain the query string.
+///
+/// # Examples
+///
+/// ```
+/// let args = [String::from("frog"), String::from("poem.txt")].into_iter();
+/// let config = Config::build(args).unwrap();
+/// run(config)
+/// ```
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.file_path)?;
 
@@ -18,6 +28,23 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+/// Searches for `query` in `contents`, case sensitive.
+/// Returns a list of references to lines in `contents` that contain `query`.
+///
+/// # Examples
+///
+/// ```
+/// let query = "duct";
+/// let contents = "\
+/// Rust:
+/// safe, fast, productive.
+/// Pick three.
+/// Duct tape.";
+///
+/// let expected = vec!["safe, fast, productive."];
+/// let actual = search(query, contents);
+/// assert_eq!(expected, actual);
+/// ```
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()

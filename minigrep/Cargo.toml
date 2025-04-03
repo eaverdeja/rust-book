@@ -1,6 +1,8 @@
 [package]
-name = "minigrep"
+name = "eaverdeja-minigrep"
 version = "0.1.0"
 edition = "2024"
+description = "minigrep from chapter 12 of the Rust lang book"
+license = "MIT"
 
 [dependencies]
