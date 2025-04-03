@@ -1,6 +1,7 @@
 use std::env;
 use std::process;
 
+use eaverdeja_minigrep as minigrep;
 use minigrep::Config;
 
 fn main() {
