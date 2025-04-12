@@ -1,0 +1,230 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'design-challenges'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=design-challenges",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "design-challenges",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'design-challenges'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=design-challenges",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "design-challenges",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'widget1'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=widget1",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget1",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'widget1'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=widget1",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget1",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'widget2'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=widget2",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget2",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'widget2'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=widget2",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget2",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'widget3'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=widget3",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget3",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'widget3'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=widget3",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget3",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'widget4'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=widget4",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget4",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'widget4'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=widget4",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget4",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'widget5'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=widget5",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget5",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'widget5'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=widget5",
+                    "--package=design-challenges"
+                ],
+                "filter": {
+                    "name": "widget5",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "cargo",
+            "command": "run",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "label": "rust: cargo run",
+            "args": ["${input:url1}", "${input:url2}"]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "url1",
+            "type": "promptString",
+            "description": "1st URL to fetch"
+        },
+        {
+            "id": "url2",
+            "type": "promptString",
+            "description": "2nd URL to fetch"
+        }
+    ]
+}

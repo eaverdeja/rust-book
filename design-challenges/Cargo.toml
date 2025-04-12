@@ -1,0 +1,28 @@
+[package]
+name = "design-challenges"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "widget1"
+path = "src/bin/widget1.rs"
+
+[[bin]]
+name = "widget2"
+path = "src/bin/widget2.rs"
+
+[[bin]]
+name = "widget3"
+path = "src/bin/widget3.rs"
+
+[[bin]]
+name = "widget4"
+path = "src/bin/widget4.rs"
+
+[[bin]]
+name = "widget5"
+path = "src/bin/widget5.rs"
